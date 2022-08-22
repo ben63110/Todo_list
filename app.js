@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
   // 拿到所有Todo資料
   Todo.find()
     .lean()
+    .sort({ _id: 'asc' })
     .then(todos => res.render('index', { todos }))
     .catch(error => console.error(error))
 })
